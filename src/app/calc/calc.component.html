@@ -1,0 +1,40 @@
+<div class="container color-dark">
+    <div class="col">
+        <p>You can calculate railway tarrif</p>
+    </div>
+</div>
+<div class="container color-light">
+    <div class="col">
+        <form>
+            <p>Departure station</p>
+            <input type="txt" class="txt" name="depStation" placeholder="input the departure station" [(ngModel)]="depStation" list="dep" (onchange)="IfSelect()">
+                <datalist id="dep">
+                    <option *ngFor="let station of station$">{{station.name}}</option>
+                </datalist>
+            <p>Destination station</p>
+            <input type="text" class="txt" name="destStation" placeholder="input the destination station" [(ngModel)]="destStation" list="dst">
+                <datalist id="dst">
+                    <option *ngFor="let station of station$">{{station.name}}</option>
+                </datalist>
+            <p>Type of good</p>
+            <input type="text" class="txt" name="typeOfGood" placeholder="input the type of good" [(ngModel)]="typeOfGood" list="gd">
+                <datalist id="gd">
+                    <option *ngFor="let good of good$">{{good.title}}</option>
+                </datalist>
+            <p>Type of car</p>
+            <input type="text" class="txt" name="typeOfCar" placeholder="input the type of car" [(ngModel)]="typeOfCar" list="cr">
+                <datalist id="cr">
+                    <option *ngFor="let car of car$">{{car.shortname}}</option>
+                </datalist>
+            <p>Weight</p>
+            <input type="text" class="txt" name="weight" placeholder="input the weight" [(ngModel)]="weight">
+            <p>
+                {{depStation}}{{destStation}}{{typeOfGood}}{{typeOfCar}}{{weight}}{{ calculate }}
+            </p>
+            <p>{{hostname}}</p>
+            <input type="submit" class="btn" value="Reset" (click)="Reset()">    
+            <input type="submit" class="btn" value="Calculate" (click)="Calculate()">    
+        </form>
+    </div>
+</div>
+
